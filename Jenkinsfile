@@ -2,8 +2,17 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        echo 'HAHA!'
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'HAHA!'
+          }
+        }
+        stage('') {
+          steps {
+            openshiftDeploy 'mongodb'
+          }
+        }
       }
     }
   }
