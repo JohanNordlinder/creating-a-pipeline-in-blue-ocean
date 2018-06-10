@@ -8,7 +8,7 @@ pipeline {
             echo 'HAHA!'
           }
         }
-        stage('') {
+        stage('Trigger deployment of mongodb') {
           steps {
             openshiftDeploy 'mongodb'
           }
